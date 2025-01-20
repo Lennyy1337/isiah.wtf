@@ -85,7 +85,7 @@ export default function Home() {
           <div className="">
             <Image
               className=""
-              src="/israel-l.gif"
+              src="https://media.tenor.com/qqroeiBr-d8AAAAM/israel-isra%C3%ABl.gif"
               alt="Isiah is a skid"
               width={180}
               unoptimized
