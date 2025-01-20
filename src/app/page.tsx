@@ -1,101 +1,118 @@
+"use client"
+import { loadAll } from "@tsparticles/all";
+import { ISourceOptions, tsParticles } from "@tsparticles/engine";
 import Image from "next/image";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  async function loadParticles(options: ISourceOptions) {
+    await loadAll(tsParticles);
+    await tsParticles.load({ id: "tsparticles", options });
+  }
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+  const configs = {
+    particles: {
+      stroke: {
+        width: 5,
+        color: {
+          value: [
+            "#5bc0eb",
+            "#fde74c",
+            "#9bc53d",
+            "#e55934",
+            "#fa7921",
+            "#2FF3E0",
+            "#F8D210",
+            "#FA26A0",
+            "#F51720"
+          ]
+        }
+      },
+      shape: {
+        type: "square",
+        options: {
+          square: {
+            fill: false
+          }
+        }
+      },
+      rotate: {
+        value: 0,
+        direction: "counter-clockwise",
+        animation: {
+          enable: true,
+          speed: 2,
+          sync: true
+        }
+      },
+      size: {
+        value: { min: 1, max: 500 },
+        animation: {
+          enable: true,
+          startValue: "min",
+          speed: 60,
+          sync: true,
+          destroy: "max"
+        }
+      }
+    },
+    background: {
+      color: "#000"
+    },
+    emitters: {
+      direction: "top",
+      position: {
+        y: 50,
+        x: 50
+      },
+      rate: {
+        delay: 1,
+        quantity: 1
+      }
+    }
+  };
+  
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  loadParticles(configs as any);
+  return (
+    <main className="relative min-h-screen">
+      <div
+        id="tsparticles"
+        className="absolute inset-0 z-0 blur"
+      ></div>
+
+      <div className="relative z-10 flex flex-col items-center sm:p-24 p-4 space-y-4 justify-center">
+        <div className=" w-fit p-12 items-center flex flex-col rounded-3xl shadow-xl space-y-4 justify-center">
+          <div className="">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              className=""
+              src="/israel-l.gif"
+              alt="Isiah is a skid"
+              width={180}
+              height={38}
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </div>
+          <div>
+            <h1 className="text-6xl">❤️</h1>
+          </div>
+          <div className="">
+            <Image
+              className="rounded-3xl"
+              src="/isiah.gif"
+              alt="Isiah is a skid"
+              width={180}
+              height={38}
+            />
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        <div className="flex-col items-center text-center space-y-2">
+          <h1 className="font-bold text-6xl mt-4">Isiah is Jew.</h1>
+          <h1 className="text-3xl">Recently isiah has been caught being jewish inside of a call</h1>
+          <h1 className="text-2xl">We recommend staying away from isiah and not buying any of his products.</h1>
+        </div>
+
+        <h1 className="bottom-0 font-bold text-center">This message is sponsored by Lenny, Chase Wilson and 0bxb</h1>
+      </div>
+    </main>
   );
 }
