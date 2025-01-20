@@ -88,6 +88,7 @@ export default function Home() {
               src="/israel-l.gif"
               alt="Isiah is a skid"
               width={180}
+              unoptimized
               height={38}
             />
           </div>
@@ -98,6 +99,7 @@ export default function Home() {
             <Image
               className="rounded-3xl"
               src="/isiah.gif"
+              unoptimized
               alt="Isiah is a skid"
               width={180}
               height={38}
