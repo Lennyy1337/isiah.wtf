@@ -108,7 +108,7 @@ export default function Home() {
         </div>
 
         <div className="flex-col items-center text-center space-y-2">
-          <h1 className="font-bold text-6xl mt-4">Isiah is Jew.</h1>
+          <h1 className="font-bold text-6xl mt-4">Isiah is a Jew.</h1>
           <h1 className="text-3xl">Recently isiah has been caught being jewish inside of a call</h1>
           <h1 className="text-2xl">We recommend staying away from isiah and not buying any of his products.</h1>
         </div>
